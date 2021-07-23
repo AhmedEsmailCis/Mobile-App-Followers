@@ -1,39 +1,37 @@
-//import
-import React, {Component} from 'react';
-import {View, StyleSheet, StatusBar, Text} from 'react-native';
-import ImageIcon from './ImageIcon';
-import Icon from 'react-native-vector-icons/Entypo';
-import Button from './Button';
-import TextInput from './TextInput';
-import EmailIcon from 'react-native-vector-icons/AntDesign';
-import PasswordIcon from 'react-native-vector-icons/EvilIcons';
+import React, { Component } from "react";
+import { View, StyleSheet, StatusBar, Text } from "react-native";
+import Icon from "react-native-vector-icons/Entypo";
+import EmailIcon from "react-native-vector-icons/AntDesign";
+import PasswordIcon from "react-native-vector-icons/EvilIcons";
+import { ImageIcon, Button, Input } from "../components";
 
 export default class LoginScreen extends Component {
   onSignInButtonPressed = () => {
-    this.props.navigation.navigate('Home');
+    this.props.navigation.navigate("Home");
   };
+
   render() {
     return (
       <View style={styles.view}>
         <StatusBar barStyle="dark-content" backgroundColor="white" />
         <View style={styles.header}>
-          <Icon name={'chevron-with-circle-left'} size={25} />
+          <Icon name="chevron-with-circle-left" size={25} />
         </View>
         <Text style={styles.collection}>Collection</Text>
         <Text style={styles.details}>Enter your detail below</Text>
         <Text style={styles.userOrEmail}>Username or Email</Text>
-        <TextInput
-          icon={<EmailIcon name={'mail'} size={20} />}
+        <Input
+          icon={<EmailIcon name="mail" size={20} />}
           textPlaceHolder="Enter your E-mail or Username"
         />
         <View style={styles.rowBetweenPassAndForgetPass}>
           <Text style={styles.password}>Password</Text>
           <Text style={styles.forgetPass}>Forget password?</Text>
         </View>
-        <TextInput
-          icon={<PasswordIcon name={'question'} size={25} />}
+        <Input
+          icon={<PasswordIcon name="question" size={25} />}
           textPlaceHolder="Enter your password"
-          checkSecure={true}
+          checkSecure
         />
         <Button onPress={this.onSignInButtonPressed} />
         <View style={styles.rowBetweenIsaMemberAndSignUpNow}>
@@ -51,74 +49,70 @@ export default class LoginScreen extends Component {
     );
   }
 }
-//styles
+
 const styles = StyleSheet.create({
   header: {
-    justifyContent: 'center', // for vertical
-    alignItems: 'flex-start', //for horizontal
+    justifyContent: "center", // for vertical
+    alignItems: "flex-start", // for horizontal
     padding: 20,
   },
   view: {
-    backgroundColor: 'white',
+    backgroundColor: "white",
     flex: 1, // height 100%  , wight 100%
   },
   collection: {
-    //justifyContent: 'center', // for vertical
-    textAlign: 'center', //for horizontal
+    textAlign: "center", // for horizontal
     fontSize: 22,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   details: {
-    //justifyContent: 'center', // for vertical
-    textAlign: 'center', //for horizontal
+    textAlign: "center", // for horizontal
     fontSize: 12,
-    color: 'gray',
+    color: "gray",
     marginTop: 3,
   },
   userOrEmail: {
-    //justifyContent: 'center', // for vertical
-    textAlign: 'left', //for horizontal
+    textAlign: "left", // for horizontal
     fontSize: 12,
     marginLeft: 20,
     marginTop: 30,
   },
   rowBetweenPassAndForgetPass: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    justifyContent: "space-between",
     padding: 4,
   },
   password: {
-    textAlign: 'left', //for horizontal
+    textAlign: "left", // for horizontal
     fontSize: 12,
     marginLeft: 20,
   },
   forgetPass: {
-    textAlign: 'right', //for horizontal
+    textAlign: "right", // for horizontal
     fontSize: 12,
     marginRight: 10,
   },
   rowBetweenIsaMemberAndSignUpNow: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    //padding: 5,
+    flexDirection: "row",
+    justifyContent: "center",
     marginTop: 5,
   },
   or: {
     fontSize: 20,
-    textAlign: 'center',
+    textAlign: "center",
     marginTop: 10,
   },
   signUpNow: {
-    color: 'blue',
-    textDecorationLine: 'underline',
+    color: "blue",
+    textDecorationLine: "underline",
   },
   signUpWith: {
-    textAlign: 'center',
+    textAlign: "center",
     marginTop: 10,
     marginBottom: 10,
   },
   imageIconsGroup: {
-    flexDirection: 'row',
-    justifyContent: 'center',
+    flexDirection: "row",
+    justifyContent: "center",
   },
 });

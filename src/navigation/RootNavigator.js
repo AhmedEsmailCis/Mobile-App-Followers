@@ -1,7 +1,8 @@
-import {createAppContainer} from 'react-navigation';
-import {createStackNavigator} from 'react-navigation-stack';
-import LoginScreen from './LoginScreen';
-import HomeScreen from './HomeScreen';
+import { createAppContainer } from "react-navigation";
+import { createStackNavigator } from "react-navigation-stack";
+import LoginScreen from "../screens/LoginScreen";
+import HomeScreen from "../screens/HomeScreen";
+
 const RootNavigator = createStackNavigator({
   Login: {
     screen: LoginScreen,

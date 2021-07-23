@@ -1,24 +1,24 @@
-import React, {Component} from 'react';
-import {Text, View, StyleSheet, Image, TouchableOpacity} from 'react-native';
-// create Component
-export default class UserDetails extends Component {
+import React, { Component } from "react";
+import { Text, View, StyleSheet, Image, TouchableOpacity } from "react-native";
+
+export class UserDetails extends Component {
   constructor(props) {
     super();
     this.state = {
       followed: props.fStatus,
     };
   }
-  following = (indx) => {
+
+  DoFollowing = (indx) => {
     this.setState({
       followed: !indx,
     });
   };
 
   render() {
-    const setText = () =>
-      this.state.followed === true ? 'FOLLOWING' : 'Followed Back';
-    const setBackgroundColor = (idx) => (idx === true ? '#7C37A6' : 'white');
-    const setTextColor = (idx) => (idx === true ? 'white' : '#7C37A6');
+    const setText = () => (this.state.followed === true ? "FOLLOWING" : "Followed Back");
+    const setBackgroundColor = (idx) => (idx === true ? "#7C37A6" : "white");
+    const setTextColor = (idx) => (idx === true ? "white" : "#7C37A6");
     return (
       <View style={styles.groupingView}>
         <View style={styles.imageView}>
@@ -36,17 +36,13 @@ export default class UserDetails extends Component {
         <View
           style={[
             styles.followButton,
-            {backgroundColor: setBackgroundColor(this.state.followed)},
+            { backgroundColor: setBackgroundColor(this.state.followed) },
           ]}>
           <TouchableOpacity
             onPress={() => {
-              this.following(this.state.followed);
+              this.DoFollowing(this.state.followed);
             }}>
-            <Text
-              style={[
-                styles.followText,
-                {color: setTextColor(this.state.followed)},
-              ]}>
+            <Text style={[styles.followText, { color: setTextColor(this.state.followed) }]}>
               {setText()}
             </Text>
           </TouchableOpacity>
@@ -57,43 +53,43 @@ export default class UserDetails extends Component {
 }
 const styles = StyleSheet.create({
   groupingView: {
-    flexDirection: 'row',
+    flexDirection: "row",
     marginLeft: 10,
     marginRight: 10,
     marginTop: 15,
-    justifyContent: 'space-between',
-    alignItems: 'center', //for horizontal
+    justifyContent: "space-between",
+    alignItems: "center", // for horizontal
   },
   followButton: {
-    borderColor: '#7C37A6',
+    borderColor: "#7C37A6",
     borderRadius: 10,
     borderWidth: 1.1,
     padding: 10,
     paddingRight: 10,
     width: 120,
-    alignItems: 'center',
+    alignItems: "center",
   },
   followText: {
-    color: '#7C37A6',
-    fontWeight: 'bold',
+    color: "#7C37A6",
+    fontWeight: "bold",
   },
   nameText: {
     fontSize: 15,
   },
   emailText: {
     fontSize: 11,
-    color: 'grey',
+    color: "grey",
     marginTop: 7,
   },
   imageView: {
-    overflow: 'hidden',
+    overflow: "hidden",
     borderRadius: 30,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
   imageStyle: {
     width: 50,
     height: 50,
   },
-  detailsContainer: {marginLeft: 5, marginRight: 10, width: 140},
+  detailsContainer: { marginLeft: 5, marginRight: 10, width: 140 },
 });
